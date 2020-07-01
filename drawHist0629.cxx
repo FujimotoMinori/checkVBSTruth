@@ -16,11 +16,11 @@ void setHisto(TH1F* h, int color){
 
 void drawHist0629(){
 
-  string finname = "ZZjj_leadpt.root";
+  string finname = "../ZZjj.root";
   TFile* f1 = TFile::Open(finname.c_str(), "READ");
-  string finname2 = "WZjj_leadpt.root";
+  string finname2 = "../WZjj.root";
   TFile* f2 = TFile::Open(finname2.c_str(), "READ");
-  std::string savefilename = "memo_numberOfW_leadpt.txt";
+  std::string savefilename = "memo_nVBosons_leadpt.txt";
   ofstream savefile;
   savefile.open(savefilename.c_str());
 
@@ -29,23 +29,23 @@ void drawHist0629(){
   //   TString n = key->GetName();
   //   hnames.push_back(n);
   //}
-  hnames.push_back("ZZjj_llqq_0ptag1pfat0pjet_0ptv_All_numberOfW");
-  hnames.push_back("ZZjj_llqq_0ptag1pfat0pjet_0ptv_Common_numberOfW");
-  hnames.push_back("ZZjj_llqq_0ptag2pjet_0ptv_ResolvedCommon_numberOfW");
-  hnames.push_back("ZZjj_llqq_0ptag2pjet_0ptv_SR_numberOfW");
-  hnames.push_back("ZZjj_llqq_0ptag2pjet_0ptv_SRVBS_numberOfW");
+  hnames.push_back("ZZjj_llqq_0ptag1pfat0pjet_0ptv_All_nVBosons");
+  hnames.push_back("ZZjj_llqq_0ptag1pfat0pjet_0ptv_Common_nVBosons");
+  hnames.push_back("ZZjj_llqq_0ptag2pjet_0ptv_ResolvedCommon_nVBosons");
+  hnames.push_back("ZZjj_llqq_0ptag2pjet_0ptv_SR_nVBosons");
+  hnames.push_back("ZZjj_llqq_0ptag2pjet_0ptv_SRVBS_nVBosons");
   std::vector<TString> hnames2;
-  hnames2.push_back("WZjj_llqq_0ptag1pfat0pjet_0ptv_All_numberOfW");
-  hnames2.push_back("WZjj_llqq_0ptag1pfat0pjet_0ptv_Common_numberOfW");
-  hnames2.push_back("WZjj_llqq_0ptag2pjet_0ptv_ResolvedCommon_numberOfW");
-  hnames2.push_back("WZjj_llqq_0ptag2pjet_0ptv_SR_numberOfW");
-  hnames2.push_back("WZjj_llqq_0ptag2pjet_0ptv_SRVBS_numberOfW");
+  hnames2.push_back("WZjj_llqq_0ptag1pfat0pjet_0ptv_All_nVBosons");
+  hnames2.push_back("WZjj_llqq_0ptag1pfat0pjet_0ptv_Common_nVBosons");
+  hnames2.push_back("WZjj_llqq_0ptag2pjet_0ptv_ResolvedCommon_nVBosons");
+  hnames2.push_back("WZjj_llqq_0ptag2pjet_0ptv_SR_nVBosons");
+  hnames2.push_back("WZjj_llqq_0ptag2pjet_0ptv_SRVBS_nVBosons");
   std::vector<TString> names;
-  names.push_back("All_numberOfW");
-  names.push_back("Common_numberOfW");
-  names.push_back("ResolvedCommon_numberOfW");
-  names.push_back("SR_numberOfW");
-  names.push_back("SRVBS_numberOfW");
+  names.push_back("All_nVBosons");
+  names.push_back("Common_nVBosons");
+  names.push_back("ResolvedCommon_nVBosons");
+  names.push_back("SR_nVBosons");
+  names.push_back("SRVBS_nVBosons");
 
   //make graphs
   //TGraph* gZZjj = new TGraph("gZZjj","");
