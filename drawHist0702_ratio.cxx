@@ -6,8 +6,8 @@ void setHisto(TH1F* h, int color, float total){
     h->SetStats(0);
     h->GetXaxis()->SetLabelSize(0.040);
     h->GetXaxis()->SetTitleSize(0.040);
-    //h->Scale(1/total);
-    //h->GetYaxis()->SetRangeUser(0,1);
+    h->Scale(1/total);
+    h->GetYaxis()->SetRangeUser(0,1);
 }
 
 void drawHist0702_ratio(){
@@ -19,7 +19,7 @@ void drawHist0702_ratio(){
   std::vector<TString> hnames2;
   std::vector<TString> names;
   TString prefix;
-  prefix = "_numberOfZ";
+  prefix = "_matchedflagsSignalJets";
   names.push_back("_0ptag1pfat0pjet_0ptv_All");
   names.push_back("_0ptag1pfat0pjet_0ptv_Common");
   names.push_back("_0ptag2pjet_0ptv_ResolvedCommon");
@@ -53,11 +53,17 @@ void drawHist0702_ratio(){
      savefile <<  t1->GetBinContent(4);
      savefile <<  " " << t2->GetBinContent(4) << std::endl;
      int nbins = t1->GetNbinsX();
+     std::cout << "nBins= " << nbins << std::endl;
      float total = 0;
      float total2 = 0;
-     for(int j = 0;j < nbins; j++){
+     std::cout << "before loop---------------------------" << std::endl;
+     for(int j = 0;j < nbins+1; j++){
+     std::cout << "bin content=  " << t1->GetBinContent(j) << std::endl;
+     std::cout << "bin content=  " << t2->GetBinContent(j) << std::endl;
          total += t1->GetBinContent(j);
          total2 += t2->GetBinContent(j);
+     std::cout << "total in loop=  " << total << std::endl;
+     std::cout << "total2 in loop=  " << total2 << std::endl;
      }
      std::cout << "total= " << total << std::endl;
      std::cout << "total2= " << total2 << std::endl;
@@ -74,7 +80,7 @@ void drawHist0702_ratio(){
      c->cd();
      gStyle->SetPaintTextFormat("5.2f");
      //t2->Draw("hist text0");
-     t1->Draw("hist text0 same");
+     t1->Draw("hist text0 ");
      t2->Draw("hist text0 same");
      leg->Draw();
      c->Update();
