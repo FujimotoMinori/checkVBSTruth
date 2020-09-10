@@ -10,10 +10,9 @@ void setHisto(TH1F* h, int color){
     //h->GetYaxis()->SetRangeUser(0,1);
 }
 
-void drawHist0701(){
+void drawHist0717(){
 
-  //string finname = "../2LepTest_mc16a_angle2.root";
-  string finname = "../2LepTest_mc16a_AllJetBveto_adH.root";
+  string finname = "../2LepTest_mc16a_angle.root";
   TFile* f1 = TFile::Open(finname.c_str(), "READ");
 
   std::vector<TString> hnames;
@@ -42,17 +41,14 @@ void drawHist0701(){
   names.push_back("nVBosons");
   names.push_back("xiVMer");
   names.push_back("Mlljj");
-  names.push_back("Mqqtagjet1");
-  names.push_back("Mqqtagjet2");
-  names.push_back("MwithoutZ");
-  names.push_back("llMass");
-  names.push_back("llPt");
+  names.push_back("Phi1");
+  names.push_back("Phi2");
+  names.push_back("cosTheta");
   names.push_back("cosTheta1");
   names.push_back("cosTheta2");
-  names.push_back("cosTheta2");
   for (auto name : names){
-      hnames.push_back( "WZjj_llqq_0ptag2pjet_0ptv_SRVBSwoTop_" + name);
-      hnames2.push_back( "WZjj_llqq_0ptag2pjet_0ptv_SRVBSwTop_" + name);
+      hnames.push_back( "ZZjj_llqq_0ptag2pjet_0ptv_SRVBS_" + name);
+      hnames2.push_back( "WZjj_llqq_0ptag2pjet_0ptv_SRVBS_" + name);
   }
 
   TCanvas* c; 
@@ -69,8 +65,8 @@ void drawHist0701(){
      t2->SetTitle(names.at(i));
 
      TLegend *leg = new TLegend(0.75,0.80,0.90,0.90);
-     leg->AddEntry(t1,"no Top","l");
-     leg->AddEntry(t2,"w/ Top","l");
+     leg->AddEntry(t1,"ZZjj","l");
+     leg->AddEntry(t2,"WZjj","l");
      leg->SetTextSize(0.035);
      leg->SetBorderSize(0);
      leg->SetFillStyle(0);

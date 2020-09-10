@@ -19,7 +19,8 @@ void setHisto(TH1F* h, int color){
 
 
 void drawhistogramsTestTruth(){
-    string finname = "../2LepTest_mc16a_checkTruth2.root";
+    //string finname = "../2LepTest_mc16a_checkTruth2.root";
+    string finname = "../2LepTest_mc16a_AllJetBveto_adH.root";
     TFile* fin = TFile::Open(finname.c_str(), "READ");
 
     //TH1F *hWZjjnTruth = (TH1F*)fin->Get("WZjj_llqq_0ptag2pjet_0ptv_SRVBS_nTruthJets");
